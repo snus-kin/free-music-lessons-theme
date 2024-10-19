@@ -10,6 +10,7 @@ body {
 	background-color: #fff;
 	color: #000;
 	font-family: 'Jost', Sans-Serif;
+	padding-bottom: 15vh;
 }
 
 a {
@@ -22,32 +23,6 @@ a {
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    position: relative; /*creates new positioning context so that manual sizing works below*/
-		border-top: 5px solid #BEAFC0;
-		margin-bottom: 10px;
-		padding-bottom: 5px;
-}
-
-.entry-title a::before{
-  background-color: #BEAFC0;
-  
-  position: absolute; /*so that it overlaps*/
-  z-index: -1; /*stay back bitch*/
- 
-  top:-5px; /*width and height are wack here so we use manual sizing instead*/
-  bottom:0;
-  left:-.5em;
-  right:-.5em;
-  content: ' '; /*so that the box doesnt get optimized away*/
-
-  transition:0.2s;
-  transform: scaleY(0);
-  transform-origin: top center; /*so that scale works from top to bottom*/
-    box-decoration-break: break;
-}
-
-a:hover::before{
-  transform: scaleY(1);
 }
 
 a {
@@ -67,10 +42,10 @@ li {
 }
 
 img {
-	display: inline-block;
-	padding-right: 5px;
-	margin: 0 auto;
-	max-width: 30%;
+	display: block;
+	margin: auto;
+	max-width: 100%;
+	max-height: 75vh;
 	text-align: center;
 }
 
@@ -88,11 +63,12 @@ a.back {
 .title h1 {
 	display: inline-block;
 	padding: 10px;
-	margin-left: 10%;
-	margin: 2.5%;
+	margin: 0 2.5% 0 2.5%;
 	
 	font-family: 'Jost', Sans-Serif;
 	font-size: 40pt;
+
+	line-height: 50%;
 }
 
 .body {
@@ -109,17 +85,22 @@ a.back {
 
 .published {
 	margin-top: -10px;
-	font-style: italic;
-	font-weight: lighter;
+	font-weight: 400;
 	font-size: 18pt;
+	padding-left: 3px;
 }
 
 .entry-content {
 	font-size: 12pt;
 }
 
-.ert {
-	font-size: 12pt;
+.entry-content h2 {
+	margin-bottom: 5px;
+}
+
+.entry-content p {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 #contentinfo {
@@ -128,47 +109,45 @@ a.back {
 	transform: translateX(-50%);
 }
 
-.left-footer {
-	float: left;
-	width: 33.3%;
-	text-align: left;
-}
-
-.center-footer {
-	float: left;
-	width: 33.3%;
+.price {
 	text-align: center;
+	font-size: 20pt;
 }
 
-.sidenote {
+.wharf-disclaimer p {
+	font-style: italic;
+	text-align: center;
+	width: 75%;
+	margin: auto;
+	padding-top: 5vh;
+}
+	
+
+.facebook-link {
+	text-align: center;
+	font-size: 20pt;
+}
+
+.facebook-link a {
+	background: #000;
+	color: #fff;
+	padding: 0 5px;
+}
+
+.now {
+	position: relative;
+}
+
+.nowimage {
 	position: absolute;
-	margin-left: calc(50vw + 20px);
-	width: 10%;
-	padding 10px;
-}
-
-.product-image {
-	float: right;
-	width: 45%;
-}
-
-.product-image img {
-	max-width: 100%;
-}
-
-.clear {
-	overflow: auto;
-}
-
-.clear::after {
-	clear: both;
-	content: "";
-	display: table;
+	left: -5vw;
+	bottom: -1vh;
+	height: 2vh;
 }
 
 @media only screen and (max-width: 768px) {
 	.body { width: 75vw; }
-	.title h1 { font-size 30pt; }
+	.title h1 { font-size 20pt; line-height: 100%; }
 	.entry-title { font-size: 15pt; }
 	.published { font-size: 13pt; }
 	img { width: 75vw; }

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="744.556" height="22.439" viewBox="0 0 196.997 5.937" xmlns:v="https://vecta.io/nano">
+
+<style>
+    @font-face {
+        font-family: 'Jost', sans-serif;
+        src: url(https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,700;0,800;1,400);
+    }
+    svg{
+        font-family: 'Jost', sans-serif;
+    }
+</style>
+
+
+<path d="M0 0v5.937h11.069.002l3.202-2.45h182.725V2.25H14.273L11.071 0z" fill="red"/><text xml:space="preserve" x="7.425" y="49.862" font-size="5.035" font-family="Astloch"><tspan x="0.726" y="4.532" font-style="italic" font-weight="bold" font-family="Jost" fill="#fff">Now</tspan></text></svg>

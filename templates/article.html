@@ -25,36 +25,56 @@
   {% endblock %}
 {% endblock %}
 
-<div class='title'>
-  <h1>
-    {% block titlelink %}
-    <a href="https://snufk.in/free-music-lessons">
-      Free Music Lessons
-    </a>
-    {% endblock %}
-  </h1>
-</div>
+{% block titlelink %}
+<h1>
+  <a href="https://snufk.in/free-music-lessons">
+    FREE MUSIC LESSONS
+  </a>
+  <br>
+  <time class="published" datetime="{{ article.date.isoformat() }}">
+      {{ article.locale_date }} at {{ article.location }}
+  </time>
+</h1>
+{% endblock %}
 
 {% block content %}
 <section id="content" class="body">
-  <header>
-    <h2 class="entry-title">
-      {{ article.title }}
-    </h2>
-  </header>
-
-  <footer class="post-info">
-    <time class="published" datetime="{{ article.date.isoformat() }}">
-        {{ article.locale_date }}
-    </time>
-  </footer><!-- /.post-info -->
-
+  {% if article.image %}
   <div class="poster">
-    <img src="{{ article.image }}" alt="Event poster for {{ article.title }}"></img>
+    <figure>
+      <img src="{{ article.image }}" alt="Event poster for {{ article.title }}"></img>
+      {% if article.imagecredit %}
+      <figcaption style="text-align: right">Art: {{article.imagecredit}}</figcaption>
+      {% endif %}
+    </figure>
   </div>
+  {% endif %}
+
+  {% if article.price %}
+  <div class="price">
+    {{ article.price }}
+  </div>
+  {% endif %}
 
   <div class="entry-content">
     {{ article.content }}
   </div><!-- /.entry-content -->
+
+  {% if article.facebookevent %}
+  <div class="facebook-link">
+    <a href="{{ article.facebookevent }}">Facebook Event</a>
+  </div>
+  {% endif %}
+
+  {% if article.location == "Wharf Chambers" %}
+  <div class="wharf-disclaimer">
+    <p>
+      Wharf Chambers is a members’ club and you need to be a member, or guest of
+      a member, in order to attend.  Please visit wharfchambers.org/join.
+      Membership costs £1 and requires a minimum of 48 hours to take effect.
+    </p>
+  </div>
+  {% endif %}
+
 </section>
 {% endblock %}

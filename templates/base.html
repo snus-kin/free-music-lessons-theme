@@ -45,21 +45,12 @@
 
 <body id="index" class="home">
         <div class='title'>
+                {% block titlelink %}
                 <h1>
-                        {% block titlelink %}
-                        <a href="https://snufk.in">Free Music Lessons</a>
-                        {% endblock %}
+                                <a href="https://snufk.in">FREE MUSIC LESSONS</a>
                 </h1>
+                {% endblock %}
         </div>
-
-        <nav id="menu">
-                <ul>
-                {% for title, link in MENUITEMS %}
-                    <li><a href="{{ link }}">{{ title }}</a></li>
-                {% endfor %}
-
-                </ul>
-        </nav>
 
         {% block content %}
         {% endblock %}

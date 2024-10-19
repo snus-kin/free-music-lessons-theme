@@ -10,7 +10,7 @@
         <li><article class="hentry">
 			<header> <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
                 <footer class="post-info">
-                    <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
+                    <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} at {{ article.location }}</time>
                 </footer><!-- /.post-info -->
         </article></li>
 {% endfor %}
@@ -21,3 +21,28 @@
 </div>
 </section><!-- /#content -->
 {% endblock content %}
+
+{% block javascript %}
+<script>
+    const nowDiv = document.createElement("div");
+    const nowImg = document.createElement("img");
+    nowImg.src = "https://snufk.in/free-music-lessons/theme/nowmarker.svg"
+    nowDiv.classList.add("now");
+    nowImg.classList.add("nowimage");
+    nowDiv.appendChild(nowImg);
+
+    const articles = document.getElementById("post-list");
+
+    const articleChildren = articles.children;
+    for (let article = 0; article < articleChildren.length; article++) {
+        const a = articleChildren[article];
+        const published = a.getElementsByClassName("published")[0];
+        const datetime = Date.parse(published.dateTime);
+
+        if (Date.now() > datetime) {
+            articles.insertBefore(nowDiv, articleChildren[article]);
+            break;
+        }
+    }
+</script>
+{% endblock javascript %}
