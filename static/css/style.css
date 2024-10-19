@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,700;0,800;1,400&display=swap');
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-display: swap;
+}
+
+body {
+	background-color: #fff;
+	color: #000;
+	font-family: 'Jost', Sans-Serif;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+.entry-title a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    position: relative; /*creates new positioning context so that manual sizing works below*/
+		border-top: 5px solid #BEAFC0;
+		margin-bottom: 10px;
+		padding-bottom: 5px;
+}
+
+.entry-title a::before{
+  background-color: #BEAFC0;
+  
+  position: absolute; /*so that it overlaps*/
+  z-index: -1; /*stay back bitch*/
+ 
+  top:-5px; /*width and height are wack here so we use manual sizing instead*/
+  bottom:0;
+  left:-.5em;
+  right:-.5em;
+  content: ' '; /*so that the box doesnt get optimized away*/
+
+  transition:0.2s;
+  transform: scaleY(0);
+  transform-origin: top center; /*so that scale works from top to bottom*/
+    box-decoration-break: break;
+}
+
+a:hover::before{
+  transform: scaleY(1);
+}
+
+a {
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+	
+	transition: 0.2s;
+}
+
+a:hover {
+	color: #002A47;
+}
+
+li {
+	margin-bottom: 1vh;
+}
+
+img {
+	display: inline-block;
+	padding-right: 5px;
+	margin: 0 auto;
+	max-width: 30%;
+	text-align: center;
+}
+
+.back {
+	margin: 5vh auto;
+	width: 100%;
+	text-align: center;
+}
+
+a.back {
+	display: inline-block;
+	line-height: 30px;
+}
+
+.title h1 {
+	display: inline-block;
+	padding: 10px;
+	margin-left: 10%;
+	margin: 2.5%;
+	
+	font-family: 'Jost', Sans-Serif;
+	font-size: 40pt;
+}
+
+.body {
+	width: 50vw;
+	display: block;
+	margin: auto;
+}
+
+.entry-title {
+	font-family: 'Jost', Sans-Serif;
+	font-size: 30pt;
+	margin-bottom: 0;
+}
+
+.published {
+	margin-top: -10px;
+	font-style: italic;
+	font-weight: lighter;
+	font-size: 18pt;
+}
+
+.entry-content {
+	font-size: 12pt;
+}
+
+.ert {
+	font-size: 12pt;
+}
+
+#contentinfo {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.left-footer {
+	float: left;
+	width: 33.3%;
+	text-align: left;
+}
+
+.center-footer {
+	float: left;
+	width: 33.3%;
+	text-align: center;
+}
+
+.sidenote {
+	position: absolute;
+	margin-left: calc(50vw + 20px);
+	width: 10%;
+	padding 10px;
+}
+
+.product-image {
+	float: right;
+	width: 45%;
+}
+
+.product-image img {
+	max-width: 100%;
+}
+
+.clear {
+	overflow: auto;
+}
+
+.clear::after {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+@media only screen and (max-width: 768px) {
+	.body { width: 75vw; }
+	.title h1 { font-size 30pt; }
+	.entry-title { font-size: 15pt; }
+	.published { font-size: 13pt; }
+	img { width: 75vw; }
+	blockquote { margin-left: 0; }
+	.not-important { display: none; } 
+	quoteback-component { width:100%; }
+}
+	

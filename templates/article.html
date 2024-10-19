@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+
+  <title>{% block title %}{{article.title}} | snufk.in{% endblock %}</title>
+
+  {% block metadata %}
+    {% if article.image %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{article.image}}">
+    <meta name="og:image" content="{{article.image}}">
+    {% endif %}
+
+    <meta name="dc:title" content="{{article.title}}">
+    <meta name="og:title" content="{{article.title}}">
+    <meta name="title" content="{{article.title}}">
+    <meta name="type" content="article" />
+    <meta name="og:type" content="article" />
+    <meta name="twitter:title" content="{{article.title}}">
+
+    {% for tag in article.tags %}
+      <meta name="tags" content="{{tag}}" />
+      <meta name="og:tags" content="{{tag}}" />
+    {% endfor %}
+  {% endblock %}
+{% endblock %}
+
+<div class='title'>
+  <h1>
+    {% block titlelink %}
+    <a href="https://snufk.in/free-music-lessons">
+      Free Music Lessons
+    </a>
+    {% endblock %}
+  </h1>
+</div>
+
+{% block content %}
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      {{ article.title }}
+    </h2>
+  </header>
+
+  <footer class="post-info">
+    <time class="published" datetime="{{ article.date.isoformat() }}">
+        {{ article.locale_date }}
+    </time>
+  </footer><!-- /.post-info -->
+
+  <div class="poster">
+    <img src="{{ article.image }}" alt="Event poster for {{ article.title }}"></img>
+  </div>
+
+  <div class="entry-content">
+    {{ article.content }}
+  </div><!-- /.entry-content -->
+</section>
+{% endblock %}

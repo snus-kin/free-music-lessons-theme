@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ page.title }}
+{%endblock%}
+
+{% block content %}
+    <article>
+        <h1>{{ page.title }}</h1>
+
+        <div class="poster">
+            {{ page.image }}
+        </div>
+
+        {{ page.content }}
+    </article>
+{% endblock %}
